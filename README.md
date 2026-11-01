@@ -26,7 +26,7 @@
      --latest
    ```
 
-5. Обнови в `index.html` версию, размер, SHA-256, MD5 и имена файлов `download="ResellerSimulator-X.Y.Z.apk"`.
+5. Обнови в `index.html` версию, размер, SHA-256, MD5, `softwareVersion`/`fileSize` в JSON-LD и имена файлов `download="ResellerSimulator-X.Y.Z.apk"`; при необходимости обнови `lastmod` в `sitemap.xml`.
 6. Закоммить и запушь `site/`; GitHub Actions опубликует страницу.
 7. Проверь, что `releases/latest/download/ResellerSimulator.apk` отдаёт новый файл, а на сайте видны новые версия и контрольные суммы.
 
@@ -41,6 +41,14 @@ APK не версионируется в git: он хранится только
 - Без интернета счётчик показывает `—`, но игра работает офлайн.
 
 Не публикуй в topic имена, аккаунты или другие личные данные.
+
+## SEO и индексация
+
+- `robots.txt` разрешает обход и указывает на `sitemap.xml`.
+- В `index.html` есть canonical, Open Graph, Twitter Card и JSON-LD `SoftwareApplication`.
+- `404.html` закрыт от индексации.
+- Для IndexNow в корне лежит ключевой файл `03357cd0cc975231c101e1359d5293bb.txt`; после деплоя можно отправить URL через `https://api.indexnow.org/indexnow`.
+- Google Search Console нужно подтвердить отдельно: добавить HTML-файл или meta-тег, который выдаст Google, затем отправить sitemap и нажать «Проверить URL» → «Запросить индексирование».
 
 ## Как редактировать сайт
 
