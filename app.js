@@ -116,7 +116,11 @@ async function updateOnlineCount() {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const text = await response.text();
-    const now = Math.floor(Date.now() / 1000);
+    const dateHeader = response.headers?.get('date');
+    const serverNow = dateHeader ? Date.parse(dateHeader) : NaN;
+    const now = Number.isFinite(serverNow)
+      ? Math.floor(serverNow / 1000)
+      : Math.floor(Date.now() / 1000);
 
     for (const line of text.split('\n')) {
       if (!line.trim()) continue;
