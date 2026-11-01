@@ -3,20 +3,50 @@
 Статический сайт для прямой загрузки APK. Публикуется через GitHub Pages.
 
 - **Сайт:** https://ivan1241.github.io/reseller-simulator-site/
+- **Короткая ссылка:** https://is.gd/resellersim
 - **APK:** https://github.com/ivan1241/reseller-simulator-site/releases/latest/download/ResellerSimulator.apk
+- **Короткая ссылка APK:** https://is.gd/resellerapk
+- **Telegram-канал разработчика:** https://t.me/resellersim
 - **Репозиторий:** https://github.com/ivan1241/reseller-simulator-site
 
-## Как обновить APK
+## Обновление APK
+
+Договорённость: при выпуске новой версии агент сам публикует APK и обновляет сайт.
 
 1. Собери новый APK в Hefesto и проверь его.
-2. Открой на GitHub вкладку **Releases** → **Draft a new release**.
-3. Поставь новый тег, например `v2.3.0`, и прикрепи файл с именем `ResellerSimulator.apk`.
-4. Опубликуй релиз. Ссылка на сайте обновится сама, потому что она ведёт на `releases/latest/download/ResellerSimulator.apk`.
-5. Если изменились версия, размер, контрольные суммы или количество товаров, обнови их в `index.html` и отправь коммит.
+2. Скопируй файл в корень проекта как `ResellerSimulator.apk`.
+3. Посчитай размер, MD5 и SHA-256.
+4. Создай GitHub Release `vX.Y.Z` и прикрепи файл с именем `ResellerSimulator.apk`:
+
+   ```bash
+   gh release create vX.Y.Z ResellerSimulator.apk \
+     --repo ivan1241/reseller-simulator-site \
+     --title "Reseller Simulator X.Y.Z" \
+     --notes "Новая версия Reseller Simulator." \
+     --latest
+   ```
+
+5. Обнови в `index.html` версию, размер, SHA-256, MD5 и имена файлов `download="ResellerSimulator-X.Y.Z.apk"`.
+6. Закоммить и запушь `site/`; GitHub Actions опубликует страницу.
+7. Проверь, что `releases/latest/download/ResellerSimulator.apk` отдаёт новый файл, а на сайте видны новые версия и контрольные суммы.
+
+APK не версионируется в git: он хранится только в GitHub Releases. Ссылка `releases/latest/download/...` всегда ведёт на последний релиз.
+
+## Счётчик игроков онлайн
+
+Счётчик настоящий: запущенная игра отправляет анонимный heartbeat на публичный topic `ntfy.sh` раз в 45 секунд. Сайт опрашивает topic раз в 20 секунд и считает уникальные сессии за последние 90 секунд. Если игрок закрыл игру, отправляется `leave`.
+
+- Topic: `reseller-sim-online-23742d83bb00a1ac9b4c74e5bc5f619a`
+- В heartbeat передаются только случайный ID сессии и время.
+- Без интернета счётчик показывает `—`, но игра работает офлайн.
+
+Не публикуй в topic имена, аккаунты или другие личные данные.
 
 ## Как редактировать сайт
 
-Меняй `index.html`, `styles.css`, `app.js` и иконки. После изменений:
+Меняй `index.html`, `styles.css`, `app.js` и иконки. Ссылка «Поделиться сайтом» копирует короткий адрес `https://is.gd/resellersim`, а не URL GitHub Pages.
+
+После изменений:
 
 ```bash
 git add .
@@ -28,4 +58,4 @@ GitHub Actions автоматически опубликует новую вер
 
 ## Локальная проверка
 
-Открой `index.html` в браузере. Для проверки скачивания нужен интернет: кнопка ведёт на GitHub Releases.
+Открой `index.html` в браузере. Для проверки скачивания нужен интернет: кнопка ведёт на GitHub Releases. Счётчик онлайн тоже требует интернет.

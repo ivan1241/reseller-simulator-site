@@ -6,14 +6,14 @@
     <title>Reseller Simulator — скачать APK для Android</title>
     <meta
       name="description"
-      content="Прямая загрузка Reseller Simulator 2.2.0 для Android. 620 товаров с реальными фото, три маркетплейса, гараж, ГАИ и торг. Работает офлайн."
+      content="Прямая загрузка Reseller Simulator 2.2.1 для Android. 620 товаров с реальными фото, три маркетплейса, гараж, ГАИ и торг. Работает офлайн."
     />
     <meta name="theme-color" content="#07110f" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Reseller Simulator — скачать APK" />
     <meta
       property="og:description"
-      content="Прямая ссылка на APK без Telegram и регистрации. Версия 2.2.0, Android 7.0+, работает офлайн."
+      content="Прямая ссылка на APK без Telegram и регистрации. Версия 2.2.1, Android 7.0+, работает офлайн."
     />
     <meta property="og:image" content="./icon-512.png" />
     <link rel="icon" type="image/png" href="./icon-192.png" />
@@ -36,6 +36,7 @@
           <a href="#download">Загрузка</a>
           <a href="#install">Установка</a>
           <a href="#faq">Вопросы</a>
+          <a href="https://t.me/resellersim" target="_blank" rel="noopener">Telegram</a>
         </nav>
 
         <a class="button button-small" href="#download">Скачать APK</a>
@@ -51,7 +52,7 @@
           <div class="hero-copy">
             <p class="eyebrow">
               <span class="pulse-dot" aria-hidden="true"></span>
-              Android APK · версия 2.2.0
+              Android APK · версия 2.2.1
             </p>
 
             <h1>Скачай <span>Reseller Simulator</span> напрямую</h1>
@@ -65,7 +66,7 @@
               <a
                 class="button button-primary button-download"
                 href="https://github.com/ivan1241/reseller-simulator-site/releases/latest/download/ResellerSimulator.apk"
-                download="ResellerSimulator-2.2.0.apk"
+                download="ResellerSimulator-2.2.1.apk"
               >
                 Скачать APK
                 <span class="download-arrow" aria-hidden="true">↓</span>
@@ -74,6 +75,24 @@
                 Поделиться сайтом
               </button>
             </div>
+
+            <div class="online-card" id="online-widget" aria-live="polite" aria-atomic="true">
+              <span class="online-pulse" aria-hidden="true"></span>
+              <div class="online-copy">
+                <span>Сейчас играют</span>
+                <small id="online-note">подключаемся к счётчику</small>
+              </div>
+              <strong id="online-count">—</strong>
+            </div>
+
+            <a class="telegram-card" href="https://t.me/resellersim" target="_blank" rel="noopener">
+              <span class="telegram-mark" aria-hidden="true">TG</span>
+              <span class="telegram-copy">
+                <strong>Telegram-канал разработчика</strong>
+                <small>Новости, обновления и обратная связь</small>
+              </span>
+              <span class="telegram-arrow" aria-hidden="true">↗</span>
+            </a>
 
             <ul class="hero-meta" aria-label="Характеристики">
               <li>80 МБ</li>
@@ -216,7 +235,7 @@
             <div class="release-meta">
               <div>
                 <span>Версия</span>
-                <strong>2.2.0</strong>
+                <strong>2.2.1</strong>
               </div>
               <div>
                 <span>Размер</span>
@@ -238,14 +257,14 @@
               <img src="./icon-192.png" alt="" width="64" height="64" />
               <div>
                 <span>Reseller Simulator</span>
-                <strong>APK · 2.2.0</strong>
+                <strong>APK · 2.2.1</strong>
               </div>
             </div>
 
             <a
               class="button button-primary button-wide button-download"
               href="https://github.com/ivan1241/reseller-simulator-site/releases/latest/download/ResellerSimulator.apk"
-              download="ResellerSimulator-2.2.0.apk"
+              download="ResellerSimulator-2.2.1.apk"
             >
               Скачать ResellerSimulator.apk
               <span class="download-arrow" aria-hidden="true">↓</span>
@@ -259,12 +278,12 @@
             <div class="checksum">
               <div class="checksum-row">
                 <span>SHA-256</span>
-                <code id="sha256">bc09a7eba629fdae9bd34145e1c57499f4f98d83558110358ed2695581caaa61</code>
+                <code id="sha256">f0c484045a167b4fa7b85e9777bc10cc646556833640cbca69ace602e7caf5c5</code>
                 <button type="button" class="copy-button" data-copy="#sha256">Копировать</button>
               </div>
               <div class="checksum-row">
                 <span>MD5</span>
-                <code id="md5">85c21fedd2f81f70595953b3c2cd93f0</code>
+                <code id="md5">2f9af67fec71d67220d0e9051652cc08</code>
                 <button type="button" class="copy-button" data-copy="#md5">Копировать</button>
               </div>
             </div>
@@ -330,7 +349,18 @@
               <summary>Игра действительно работает без интернета?</summary>
               <p>
                 Да. Все фотографии и данные находятся внутри APK. Сеть нужна только
-                для загрузки файла и, при желании, для новых версий сайта.
+                для загрузки файла и для счётчика игроков онлайн. Без интернета игра
+                работает как раньше.
+              </p>
+            </details>
+
+            <details>
+              <summary>Что означает «Сейчас играют»?</summary>
+              <p>
+                Это живой счётчик запущенных копий игры. Игра раз в 45 секунд отправляет
+                анонимный сигнал на ntfy.sh: только случайный ID сессии и время. Имя,
+                аккаунт и геолокация не передаются. Если интернета нет, счётчик просто
+                не обновляется, а игра продолжает работать офлайн.
               </p>
             </details>
 
@@ -366,13 +396,13 @@
         <div class="wrap final-cta-inner">
           <img src="./icon-512.png" alt="" width="72" height="72" />
           <div>
-            <h2>Reseller Simulator 2.2.0</h2>
+            <h2>Reseller Simulator 2.2.1</h2>
             <p>620 товаров с реальными фото. Скачивай напрямую и играй офлайн.</p>
           </div>
           <a
             class="button button-primary"
             href="https://github.com/ivan1241/reseller-simulator-site/releases/latest/download/ResellerSimulator.apk"
-            download="ResellerSimulator-2.2.0.apk"
+            download="ResellerSimulator-2.2.1.apk"
           >
             Скачать APK
           </a>
@@ -386,7 +416,10 @@
           <img src="./icon-192.png" alt="" width="32" height="32" />
           <span>Reseller Simulator</span>
         </div>
-        <p>Прямая загрузка APK для Android. Версия 2.2.0.</p>
+        <p>
+          Прямая загрузка APK для Android. Версия 2.2.1.
+          <a href="https://t.me/resellersim" target="_blank" rel="noopener">Telegram-канал разработчика</a>.
+        </p>
         <p>© <span id="year">2026</span> Reseller Simulator</p>
       </div>
     </footer>

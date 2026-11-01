@@ -360,6 +360,144 @@ summary:focus-visible {
   content: "";
 }
 
+.online-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 11px 16px 11px 13px;
+  border: 1px solid var(--line-strong);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(66, 227, 178, 0.08), transparent 62%),
+    rgba(8, 22, 18, 0.74);
+  color: var(--muted-strong);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.online-card.is-offline {
+  opacity: 0.7;
+}
+
+.online-copy {
+  display: grid;
+  gap: 2px;
+}
+
+.online-copy > span {
+  color: var(--text);
+  font-weight: 760;
+}
+
+.online-copy small {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 620;
+}
+
+.online-count {
+  min-width: 2.2ch;
+  color: var(--accent-bright);
+  font-size: 26px;
+  font-weight: 860;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  text-align: right;
+}
+
+.online-pulse {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--accent-bright);
+  box-shadow: 0 0 0 6px rgba(183, 255, 130, 0.1);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+.online-card.is-offline .online-pulse {
+  background: var(--muted);
+  box-shadow: none;
+  animation: none;
+}
+
+.telegram-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: 24px;
+  padding: 11px 15px 11px 12px;
+  border: 1px solid rgba(42, 171, 238, 0.34);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(42, 171, 238, 0.16), transparent 68%),
+    rgba(8, 22, 18, 0.74);
+  color: var(--text);
+  text-decoration: none;
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.telegram-card:hover,
+.telegram-card:focus-visible {
+  border-color: rgba(108, 200, 245, 0.72);
+  background:
+    linear-gradient(135deg, rgba(42, 171, 238, 0.22), transparent 68%),
+    rgba(8, 22, 18, 0.86);
+  transform: translateY(-1px);
+}
+
+.telegram-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 12px;
+  background: #229ed9;
+  box-shadow: 0 8px 20px rgba(42, 171, 238, 0.24);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 860;
+  letter-spacing: 0.04em;
+}
+
+.telegram-copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.telegram-copy strong {
+  font-size: 14px;
+  font-weight: 780;
+}
+
+.telegram-copy small {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.telegram-arrow {
+  margin-left: auto;
+  color: #6cc8f5;
+  font-size: 20px;
+  line-height: 1;
+  transition: transform 180ms ease;
+}
+
+.telegram-card:hover .telegram-arrow,
+.telegram-card:focus-visible .telegram-arrow {
+  transform: translate(2px, -2px);
+}
+
 .hero-visual {
   position: relative;
   display: flex;
@@ -949,6 +1087,12 @@ summary:focus-visible {
   margin: 0;
 }
 
+.footer-inner a {
+  color: var(--accent-bright);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .footer-brand {
   color: var(--text);
   font-size: 13px;
@@ -1071,6 +1215,23 @@ summary:focus-visible {
   }
 
   .hero-actions .button {
+    width: 100%;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .online-card {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .online-card {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .telegram-card {
     width: 100%;
   }
 
